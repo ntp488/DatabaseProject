@@ -1,10 +1,17 @@
-CREATE TABLE Customers (
+CREATE TABLE Customer (
     CustomerID INT PRIMARY KEY,
     CustomerFirstName VARCHAR(30),
     CustomerLastName VARCHAR(30)
 );
 
-CREATE TABLE Weddings (
+CREATE TABLE Employee (
+    EmployeeID INT PRIMARY KEY,
+    EmployeeFirstName VARCHAR(30),
+    EmployeeLastName VARCHAR(30),
+    EmployeeSalary INT
+);
+
+CREATE TABLE Wedding (
     WeddingID INT PRIMARY KEY,
     WeddingDate DATE,
     TotalPrice DOUBLE,
@@ -14,7 +21,7 @@ CREATE TABLE Weddings (
     FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
 );
 
-CREATE TABLE Venders (
+CREATE TABLE Vender (
     VenderID INT PRIMARY KEY,
     VenderName VARCHAR(50),
     VenderState VARCHAR(2)
