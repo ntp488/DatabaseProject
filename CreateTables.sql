@@ -1,37 +1,37 @@
 CREATE TABLE Customer (
-    CustomerID INT PRIMARY KEY,
-    CustomerFirstName VARCHAR(30),
-    CustomerLastName VARCHAR(30)
+    CustomerID INT IDENTITY PRIMARY KEY,
+    CustomerFirstName VARCHAR(30) NOT NULL,
+    CustomerLastName VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE Employee (
-    EmployeeID INT PRIMARY KEY,
-    EmployeeFirstName VARCHAR(30),
-    EmployeeLastName VARCHAR(30),
-    EmployeeSalary INT
+    EmployeeID INT IDENTITY PRIMARY KEY,
+    EmployeeFirstName VARCHAR(30) NOT NULL,
+    EmployeeLastName VARCHAR(30) NOT NULL,
+    EmployeeSalary INT NOT NULL
 );
 
 CREATE TABLE Wedding (
-    WeddingID INT PRIMARY KEY,
-    WeddingDate DATE,
-    TotalPrice DOUBLE,
-    Paid BOOLEAN,
-    TotalCost DOUBLE,
-    CustomerID INT,
-    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+    WeddingID INT IDENTITY PRIMARY KEY,
+    WeddingDate DATE NOT NULL,
+    TotalPrice DOUBLE NOT NULL,
+    Paid BOOLEAN NOT NULL,
+    TotalCost DOUBLE NOT NULL,
+    CustomerID INT NOT NULL,
+    FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
 );
 
 CREATE TABLE Vender (
-    VenderID INT PRIMARY KEY,
-    VenderName VARCHAR(50),
-    VenderState VARCHAR(2)
+    VenderID INT IDENTITY PRIMARY KEY,
+    VenderName VARCHAR(50) NOT NULL,
+    VenderState VARCHAR(2) NOT NULL
 );
 
 CREATE TABLE Supplies (
-    ItemID INT PRIMARY KEY,
-    ItemName VARCHAR(50),
-    VenderID INT,
-    ItemCost DOUBLE,
-    Stock INT,
-    FOREIGN KEY (VenderID) REFERENCES Venders(VenderID)
+    ItemID INT IDENTITY PRIMARY KEY,
+    ItemName VARCHAR(50) NOT NULL,
+    VenderID INT NOT NULL,
+    ItemCost DOUBLE NOT NULL,
+    Stock INT NOT NULL,
+    FOREIGN KEY (VenderID) REFERENCES Vender(VenderID)
 );

@@ -1,0 +1,9 @@
+/*C4*/SET SCHEMA PUBLIC
+drop table Customer
+drop table Employee
+CREATE TABLE Customer (\u000a    CustomerID INT IDENTITY PRIMARY KEY,\u000a    CustomerFirstName VARCHAR(30) NOT NULL,\u000a    CustomerLastName VARCHAR(30) NOT NULL\u000a)
+CREATE TABLE Employee (\u000a    EmployeeID INT IDENTITY PRIMARY KEY,\u000a    EmployeeFirstName VARCHAR(30) NOT NULL,\u000a    EmployeeLastName VARCHAR(30) NOT NULL,\u000a    EmployeeSalary INT NOT NULL\u000a)
+CREATE TABLE Wedding (\u000a    WeddingID INT IDENTITY PRIMARY KEY,\u000a    WeddingDate DATE NOT NULL,\u000a    TotalPrice DOUBLE NOT NULL,\u000a    Paid BOOLEAN NOT NULL,\u000a    TotalCost DOUBLE NOT NULL,\u000a    CustomerID INT NOT NULL,\u000a    FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)\u000a)
+CREATE TABLE Vender (\u000a    VenderID INT IDENTITY PRIMARY KEY,\u000a    VenderName VARCHAR(50) NOT NULL,\u000a    VenderState VARCHAR(2) NOT NULL\u000a)
+CREATE TABLE Supplies (\u000a    ItemID INT IDENTITY PRIMARY KEY,\u000a    ItemName VARCHAR(50) NOT NULL,\u000a    VenderID INT NOT NULL,\u000a    ItemCost DOUBLE NOT NULL,\u000a    Stock INT NOT NULL,\u000a    FOREIGN KEY (VenderID) REFERENCES Vender(VenderID)\u000a)
+DISCONNECT
