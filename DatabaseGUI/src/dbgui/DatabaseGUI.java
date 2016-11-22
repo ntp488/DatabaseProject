@@ -5,17 +5,42 @@
  */
 package dbgui;
 
+import java.awt.Toolkit;
+import java.sql.*;
+import java.util.Vector;
+import java.util.logging.*;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
 /**
- *
- * @author Robbie
+ * @author Robbie Rushton
  */
 public class DatabaseGUI extends javax.swing.JFrame {
+    
+    Connection conn;
 
-    /**
-     * Creates new form DatabaseGUI
-     */
     public DatabaseGUI() {
+        try {
+            Class.forName("org.hsqldb.jdbc.JDBCDriver");
+        }
+        catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(this, "Driver could not be loaded.", "Driver Error", JOptionPane.ERROR_MESSAGE);
+            System.err.println("Driver could not be loaded.");
+            System.exit(0);
+        }
+        
+        try {
+            conn = DriverManager.getConnection("jdbc:hsqldb:file:DatabaseProject", "pwrigley", "weddings");
+        }
+        catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Could not connect to database.", "Connection Error", JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(DatabaseGUI.class.getName()).log(Level.SEVERE, null, ex);
+            System.exit(0);
+        }
+        
         initComponents();
+        this.setTitle("P. Wrigley Custom Weddings");
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("resources/cake.png")));
     }
 
     /**
@@ -27,23 +52,159 @@ public class DatabaseGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        scrollPaneOne = new javax.swing.JScrollPane();
+        tableOne = new javax.swing.JTable();
+        tablePicker = new javax.swing.JComboBox<>();
+        addCustomerButton = new javax.swing.JButton();
+        addEmployeeButton = new javax.swing.JButton();
+        addWeddingButton = new javax.swing.JButton();
+        addVendorButton = new javax.swing.JButton();
+        addSuppliesButton = new javax.swing.JButton();
+        removeButton = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+
+        tableOne.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        scrollPaneOne.setViewportView(tableOne);
+
+        String[] tableChoices = {"Price Comparisons", "Unpaid Weddings", "Wedding Profit/Loss", "Unfinished Weddings", "Customers", "Employees", "Weddings", "Venders", "Supplies"};
+        tablePicker.setModel(new javax.swing.DefaultComboBoxModel<>(tableChoices));
+        tablePicker.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                tablePickerItemStateChanged(evt);
+            }
+        });
+
+        addCustomerButton.setText("Add Customer");
+
+        addEmployeeButton.setText("Add Employee");
+
+        addWeddingButton.setText("Add Wedding");
+
+        addVendorButton.setText("Add Vender");
+
+        addSuppliesButton.setText("Add Supplies");
+
+        removeButton.setText("Remove");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scrollPaneOne)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(addCustomerButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(addEmployeeButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(addWeddingButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(addVendorButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(addSuppliesButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(removeButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tablePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollPaneOne, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tablePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addCustomerButton)
+                    .addComponent(addEmployeeButton)
+                    .addComponent(addWeddingButton)
+                    .addComponent(addVendorButton)
+                    .addComponent(addSuppliesButton)
+                    .addComponent(removeButton))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tablePickerItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_tablePickerItemStateChanged
+        try {
+            loadTable();
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_tablePickerItemStateChanged
+
+    private void loadTable() throws SQLException {
+        Statement st = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        ResultSet rs;
+        String table = (String) tablePicker.getSelectedItem();
+        switch(table){
+                case "Price Comparisons":   //
+                    break;
+                case "Unpaid Weddings":     //
+                    break;
+                case "Wedding Profit/Loss": //
+                    break;
+                case "Unfinished Weddings": //
+                    break;
+                case "Customers":           rs = st.executeQuery("SELECT * FROM Customers");
+                                            tableOne.setModel(buildTableModel(rs));
+                    break;
+                case "Employees":           rs = st.executeQuery("SELECT * FROM Employees");
+                                            tableOne.setModel(buildTableModel(rs));
+                    break;
+                case "Weddings":            rs = st.executeQuery("SELECT * FROM Weddings");
+                                            tableOne.setModel(buildTableModel(rs));
+                    break;
+                case "Venders":             rs = st.executeQuery("SELECT * FROM Venders");
+                                            tableOne.setModel(buildTableModel(rs));
+                    break;
+                case "Supplies":            rs = st.executeQuery("SELECT * FROM Supplies");
+                                            tableOne.setModel(buildTableModel(rs));
+                    break;
+                default:                    //
+                    break;
+        }
+    }
+    
+    public static DefaultTableModel buildTableModel(ResultSet rs) throws SQLException {
+
+        ResultSetMetaData metaData = rs.getMetaData();
+
+        Vector<String> columnNames = new Vector<String>();
+        int columnCount = metaData.getColumnCount();
+        for (int column = 1; column <= columnCount; column++) {
+            columnNames.add(metaData.getColumnName(column));
+        }
+
+        Vector<Vector<Object>> data = new Vector<Vector<Object>>();
+        while (rs.next()) {
+            Vector<Object> vector = new Vector<Object>();
+            for (int columnIndex = 1; columnIndex <= columnCount; columnIndex++) {
+                vector.add(rs.getObject(columnIndex));
+            }
+            data.add(vector);
+        }
+
+        return new DefaultTableModel(data, columnNames);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -80,5 +241,14 @@ public class DatabaseGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addCustomerButton;
+    private javax.swing.JButton addEmployeeButton;
+    private javax.swing.JButton addSuppliesButton;
+    private javax.swing.JButton addVendorButton;
+    private javax.swing.JButton addWeddingButton;
+    private javax.swing.JButton removeButton;
+    private javax.swing.JScrollPane scrollPaneOne;
+    private javax.swing.JTable tableOne;
+    private javax.swing.JComboBox<String> tablePicker;
     // End of variables declaration//GEN-END:variables
 }
