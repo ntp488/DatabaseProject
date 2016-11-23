@@ -16,7 +16,6 @@ CREATE TABLE Weddings (
     WeddingDate DATETIME NOT NULL,
     TotalPrice DOUBLE NOT NULL,
     Paid BOOLEAN NOT NULL,
-    TotalCost DOUBLE NOT NULL,
     CustomerID INT NOT NULL,
     FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
 );
@@ -27,11 +26,26 @@ CREATE TABLE Vendors (
     VendorState VARCHAR(2) NOT NULL
 );
 
-CREATE TABLE Supplies (
+CREATE TABLE Items (
     ItemID INT IDENTITY PRIMARY KEY,
     ItemName VARCHAR(50) NOT NULL,
+    ItemStock INT NOT NULL,
+);
+
+CREATE TABLE VendorSupplies (
+    VendorSupplyID INT IDENTITY PRIMARY KEY,
+    ItemID INT NOT NULL,
     VendorID INT NOT NULL,
-    ItemCost DOUBLE NOT NULL,
-    Stock INT NOT NULL,
+    ItemCost DOUBLE NOT NULL
+    FOREIGN KEY (ItemID) REFERENCES Items(ItemID),
     FOREIGN KEY (VendorID) REFERENCES Vendors(VendorID)
+);
+
+CREATE TABLE WeddingSupplies (
+    WeddingSuppliesID INT IDENTITY PRIMARY KEY,
+    WeddingID INT NOT NULL,
+    VendorSupplyID INT NOT NULL,
+    Quantity INT NOT NULL,
+    FOREIGN KEY (WeddingID) REFERENCES Weddings(WeddingID),
+    FOREIGN KEY (VendorSupplyID) REFERENCES VendorSupplies(VendorSupplyID)
 );

@@ -52,7 +52,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="customerRequiredLabel" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="156" max="32767" attributes="0"/>
+                                  <EmptySpace pref="143" max="32767" attributes="0"/>
                                   <Component id="addCustomerButton" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="customerFirstName" max="32767" attributes="0"/>
@@ -80,7 +80,7 @@
                           <Component id="customerLastNameLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="customerLastName" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="396" max="32767" attributes="0"/>
+                          <EmptySpace pref="374" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="customerRequiredLabel" min="-2" max="-2" attributes="0"/>
                               <Component id="addCustomerButton" min="-2" max="-2" attributes="0"/>
@@ -93,6 +93,9 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="addCustomerButton">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="18" style="1"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Add"/>
                   </Properties>
                   <Events>
@@ -146,7 +149,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="employeeRequiredLabel" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="156" max="32767" attributes="0"/>
+                                  <EmptySpace pref="143" max="32767" attributes="0"/>
                                   <Component id="addEmployeeButton" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="employeeFirstName" max="32767" attributes="0"/>
@@ -180,7 +183,7 @@
                           <Component id="employeeSalaryLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="employeeSalary" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="324" max="32767" attributes="0"/>
+                          <EmptySpace pref="302" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="addEmployeeButton" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="employeeRequiredLabel" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -193,6 +196,9 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="addEmployeeButton">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="18" style="1"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Add"/>
                   </Properties>
                   <Events>
@@ -261,28 +267,26 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="weddingRequiredLabel" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="156" max="32767" attributes="0"/>
+                                  <EmptySpace pref="143" max="32767" attributes="0"/>
                                   <Component id="addWeddingButton" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="weddingPrice" alignment="0" max="32767" attributes="0"/>
-                              <Component id="weddingCost" alignment="0" max="32767" attributes="0"/>
                               <Component id="weddingCustomerID" alignment="0" max="32767" attributes="0"/>
+                              <Component id="weddingDate" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="weddingDateLabel" min="-2" max="-2" attributes="0"/>
                                       <Component id="weddingPriceLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="weddingCostLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="weddingPaidLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="weddingCustomerIDLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="weddingPaidYesButton" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="weddingPaidNoButton" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="weddingCustomerIDLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="weddingDate" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -300,10 +304,6 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="weddingPrice" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="weddingCostLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="weddingCost" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="weddingPaidLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -314,7 +314,7 @@
                           <Component id="weddingCustomerIDLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="weddingCustomerID" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="176" max="32767" attributes="0"/>
+                          <EmptySpace pref="226" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="addWeddingButton" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="weddingRequiredLabel" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -327,6 +327,9 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="addWeddingButton">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="18" style="1"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Add"/>
                   </Properties>
                   <Events>
@@ -358,21 +361,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JSpinner" name="weddingPrice">
-                  <Properties>
-                    <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                      <SpinnerModel initial="0.0" minimum="0.0" numberType="java.lang.Double" stepSize="1.0" type="number"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="weddingCostLabel">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Arial" size="18" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Wedding Cost"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JSpinner" name="weddingCost">
                   <Properties>
                     <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                       <SpinnerModel initial="0.0" minimum="0.0" numberType="java.lang.Double" stepSize="1.0" type="number"/>
@@ -445,7 +433,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="vendorRequiredLabel" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="156" max="32767" attributes="0"/>
+                                  <EmptySpace pref="143" max="32767" attributes="0"/>
                                   <Component id="addVendorButton" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="vendorName" max="32767" attributes="0"/>
@@ -473,7 +461,7 @@
                           <Component id="venderStateLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="vendorState" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="395" max="32767" attributes="0"/>
+                          <EmptySpace pref="373" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="vendorRequiredLabel" min="-2" max="-2" attributes="0"/>
                               <Component id="addVendorButton" min="-2" max="-2" attributes="0"/>
@@ -486,6 +474,9 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="addVendorButton">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="18" style="1"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Add"/>
                   </Properties>
                   <Events>
@@ -588,8 +579,8 @@
             <Container class="javax.swing.JPanel" name="suppliesTab">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="Supplies">
-                    <Property name="tabTitle" type="java.lang.String" value="Supplies"/>
+                  <JTabbedPaneConstraints tabName="Item">
+                    <Property name="tabTitle" type="java.lang.String" value="Item"/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -602,22 +593,18 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="suppliesRequiredLabel" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="156" max="32767" attributes="0"/>
+                                  <EmptySpace pref="143" max="32767" attributes="0"/>
                                   <Component id="addSuppliesButton" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="suppliesItemName" max="32767" attributes="0"/>
-                              <Component id="suppliesVendorID" alignment="0" max="32767" attributes="0"/>
-                              <Component id="suppliesItemCost" alignment="0" max="32767" attributes="0"/>
+                              <Component id="itemName" max="32767" attributes="0"/>
+                              <Component id="itemStock" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="suppliesItemNameLabel" min="-2" max="-2" attributes="0"/>
-                                      <Component id="suppliesVendorIDLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="suppliesItemCostLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="suppliesStockLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="itemNameLabel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="itemStockLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="suppliesStock" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -627,22 +614,14 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="suppliesItemNameLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="itemNameLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="suppliesItemName" min="-2" max="-2" attributes="0"/>
+                          <Component id="itemName" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="suppliesVendorIDLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="itemStockLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="suppliesVendorID" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="suppliesItemCostLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="suppliesItemCost" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="suppliesStockLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="suppliesStock" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="250" max="32767" attributes="0"/>
+                          <Component id="itemStock" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="372" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="suppliesRequiredLabel" min="-2" max="-2" attributes="0"/>
                               <Component id="addSuppliesButton" min="-2" max="-2" attributes="0"/>
@@ -655,6 +634,9 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="addSuppliesButton">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="18" style="1"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Add"/>
                   </Properties>
                   <Events>
@@ -669,7 +651,7 @@
                     <Property name="text" type="java.lang.String" value="All Fields Required"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="suppliesItemNameLabel">
+                <Component class="javax.swing.JLabel" name="itemNameLabel">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="18" style="1"/>
@@ -677,39 +659,9 @@
                     <Property name="text" type="java.lang.String" value="Item Name"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="suppliesItemName">
+                <Component class="javax.swing.JTextField" name="itemName">
                 </Component>
-                <Component class="javax.swing.JLabel" name="suppliesVendorIDLabel">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Arial" size="18" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Vendor ID"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JSpinner" name="suppliesVendorID">
-                  <Properties>
-                    <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                      <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="suppliesItemCostLabel">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Arial" size="18" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Item Cost"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JSpinner" name="suppliesItemCost">
-                  <Properties>
-                    <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                      <SpinnerModel initial="0.0" minimum="0.0" numberType="java.lang.Double" stepSize="1.0" type="number"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="suppliesStockLabel">
+                <Component class="javax.swing.JLabel" name="itemStockLabel">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="18" style="1"/>
@@ -717,7 +669,236 @@
                     <Property name="text" type="java.lang.String" value="Stock"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JSpinner" name="suppliesStock">
+                <Component class="javax.swing.JSpinner" name="itemStock">
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="vendorSuppliesTab">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Vendor Supplies">
+                    <Property name="tabTitle" type="java.lang.String" value="Vendor Supplies"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="vendorSuppliesRequiredLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="143" max="32767" attributes="0"/>
+                                  <Component id="addVendorSuppliesButton" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="vendorSuppliesItemID" max="32767" attributes="0"/>
+                              <Component id="vendorSuppliesVendorID" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="vendorSuppliesItemIDLabel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="vendorSuppliesVendorIDLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="vendorSuppliesItemCostLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="vendorSuppliesItemCost" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="vendorSuppliesItemIDLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="vendorSuppliesItemID" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="vendorSuppliesVendorIDLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="vendorSuppliesVendorID" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="vendorSuppliesItemCostLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="vendorSuppliesItemCost" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="298" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="vendorSuppliesRequiredLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="addVendorSuppliesButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JButton" name="addVendorSuppliesButton">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Add"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="vendorSuppliesRequiredLabel">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="All Fields Required"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="vendorSuppliesItemIDLabel">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Item ID"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JSpinner" name="vendorSuppliesItemID">
+                  <Properties>
+                    <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                      <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="vendorSuppliesVendorIDLabel">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Vendor ID"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JSpinner" name="vendorSuppliesVendorID">
+                  <Properties>
+                    <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                      <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="vendorSuppliesItemCostLabel">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Item Cost"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JSpinner" name="vendorSuppliesItemCost">
+                  <Properties>
+                    <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                      <SpinnerModel initial="0.0" minimum="0.0" numberType="java.lang.Double" stepSize="1.0" type="number"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="weddingSuppliesTab">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Wedding Supplies">
+                    <Property name="tabTitle" type="java.lang.String" value="Wedding Supplies"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="weddingSuppliesRequiredLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="143" max="32767" attributes="0"/>
+                                  <Component id="addWeddingSuppliesButton" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="weddingSuppliesWeddingID" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="weddingSuppliesWeddingIDLabel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="weddingSuppliesVendorSupplyIDLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="weddingSuppliesVendorSupplyID" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="weddingSuppliesWeddingIDLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="weddingSuppliesWeddingID" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="weddingSuppliesVendorSupplyIDLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="weddingSuppliesVendorSupplyID" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="370" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="weddingSuppliesRequiredLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="addWeddingSuppliesButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JButton" name="addWeddingSuppliesButton">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Add"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="weddingSuppliesRequiredLabel">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="All Fields Required"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="weddingSuppliesWeddingIDLabel">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Wedding ID"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JSpinner" name="weddingSuppliesWeddingID">
+                  <Properties>
+                    <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                      <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="weddingSuppliesVendorSupplyIDLabel">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Vendor Supply ID"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JSpinner" name="weddingSuppliesVendorSupplyID">
+                  <Properties>
+                    <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                      <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                    </Property>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -915,7 +1096,7 @@
         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="tablePickerItemStateChanged"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="String[] tableChoices = {&quot;Price Comparisons&quot;, &quot;Unpaid Weddings&quot;, &quot;Wedding Profit/Loss&quot;, &quot;Unfinished Weddings&quot;, &quot;Customers&quot;, &quot;Employees&quot;, &quot;Weddings&quot;, &quot;Venders&quot;, &quot;Supplies&quot;};"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="String[] tableChoices = {&quot;Price Comparisons&quot;, &quot;Unpaid Weddings&quot;, &quot;Wedding Profit/Loss&quot;, &quot;Unfinished Weddings&quot;, &quot;Customers&quot;, &quot;Employees&quot;, &quot;Weddings&quot;, &quot;Venders&quot;, &quot;Items&quot;, &quot;VendorSupplies&quot;, &quot;WeddingSupplies&quot;};"/>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>

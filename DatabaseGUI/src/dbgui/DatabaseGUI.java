@@ -77,8 +77,6 @@ public class DatabaseGUI extends javax.swing.JFrame {
         weddingRequiredLabel = new javax.swing.JLabel();
         weddingPriceLabel = new javax.swing.JLabel();
         weddingPrice = new javax.swing.JSpinner();
-        weddingCostLabel = new javax.swing.JLabel();
-        weddingCost = new javax.swing.JSpinner();
         weddingPaidLabel = new javax.swing.JLabel();
         weddingPaidYesButton = new javax.swing.JRadioButton();
         weddingPaidNoButton = new javax.swing.JRadioButton();
@@ -95,14 +93,26 @@ public class DatabaseGUI extends javax.swing.JFrame {
         suppliesTab = new javax.swing.JPanel();
         addSuppliesButton = new javax.swing.JButton();
         suppliesRequiredLabel = new javax.swing.JLabel();
-        suppliesItemNameLabel = new javax.swing.JLabel();
-        suppliesItemName = new javax.swing.JTextField();
-        suppliesVendorIDLabel = new javax.swing.JLabel();
-        suppliesVendorID = new javax.swing.JSpinner();
-        suppliesItemCostLabel = new javax.swing.JLabel();
-        suppliesItemCost = new javax.swing.JSpinner();
-        suppliesStockLabel = new javax.swing.JLabel();
-        suppliesStock = new javax.swing.JSpinner();
+        itemNameLabel = new javax.swing.JLabel();
+        itemName = new javax.swing.JTextField();
+        itemStockLabel = new javax.swing.JLabel();
+        itemStock = new javax.swing.JSpinner();
+        vendorSuppliesTab = new javax.swing.JPanel();
+        addVendorSuppliesButton = new javax.swing.JButton();
+        vendorSuppliesRequiredLabel = new javax.swing.JLabel();
+        vendorSuppliesItemIDLabel = new javax.swing.JLabel();
+        vendorSuppliesItemID = new javax.swing.JSpinner();
+        vendorSuppliesVendorIDLabel = new javax.swing.JLabel();
+        vendorSuppliesVendorID = new javax.swing.JSpinner();
+        vendorSuppliesItemCostLabel = new javax.swing.JLabel();
+        vendorSuppliesItemCost = new javax.swing.JSpinner();
+        weddingSuppliesTab = new javax.swing.JPanel();
+        addWeddingSuppliesButton = new javax.swing.JButton();
+        weddingSuppliesRequiredLabel = new javax.swing.JLabel();
+        weddingSuppliesWeddingIDLabel = new javax.swing.JLabel();
+        weddingSuppliesWeddingID = new javax.swing.JSpinner();
+        weddingSuppliesVendorSupplyIDLabel = new javax.swing.JLabel();
+        weddingSuppliesVendorSupplyID = new javax.swing.JSpinner();
         weddingButtonGroup = new javax.swing.ButtonGroup();
         popupRemoveFrame = new javax.swing.JFrame();
         removeRecordTypeLabel = new javax.swing.JLabel();
@@ -120,6 +130,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
         popupAddFrame.setSize(400,600);
         popupAddFrame.setResizable(false);
 
+        addCustomerButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         addCustomerButton.setText("Add");
         addCustomerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,7 +156,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
                 .addGroup(customerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, customerTabLayout.createSequentialGroup()
                         .addComponent(customerRequiredLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                         .addComponent(addCustomerButton))
                     .addComponent(customerFirstName)
                     .addGroup(customerTabLayout.createSequentialGroup()
@@ -167,7 +178,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
                 .addComponent(customerLastNameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(customerLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 396, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 374, Short.MAX_VALUE)
                 .addGroup(customerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(customerRequiredLabel)
                     .addComponent(addCustomerButton))
@@ -176,6 +187,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
 
         tabPane.addTab("Customer", customerTab);
 
+        addEmployeeButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         addEmployeeButton.setText("Add");
         addEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,7 +218,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
                 .addGroup(employeeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, employeeTabLayout.createSequentialGroup()
                         .addComponent(employeeRequiredLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                         .addComponent(addEmployeeButton))
                     .addComponent(employeeFirstName)
                     .addComponent(employeeLastName)
@@ -234,7 +246,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
                 .addComponent(employeeSalaryLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(employeeSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 302, Short.MAX_VALUE)
                 .addGroup(employeeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(addEmployeeButton, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(employeeRequiredLabel, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -243,6 +255,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
 
         tabPane.addTab("Employee", employeeTab);
 
+        addWeddingButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         addWeddingButton.setText("Add");
         addWeddingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,11 +273,6 @@ public class DatabaseGUI extends javax.swing.JFrame {
         weddingPriceLabel.setText("Wedding Price");
 
         weddingPrice.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, null, 1.0d));
-
-        weddingCostLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        weddingCostLabel.setText("Wedding Cost");
-
-        weddingCost.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, null, 1.0d));
 
         weddingPaidLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         weddingPaidLabel.setText("Paid");
@@ -292,24 +300,22 @@ public class DatabaseGUI extends javax.swing.JFrame {
                 .addGroup(weddingTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, weddingTabLayout.createSequentialGroup()
                         .addComponent(weddingRequiredLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                         .addComponent(addWeddingButton))
                     .addComponent(weddingPrice)
-                    .addComponent(weddingCost)
                     .addComponent(weddingCustomerID)
+                    .addComponent(weddingDate)
                     .addGroup(weddingTabLayout.createSequentialGroup()
                         .addGroup(weddingTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(weddingDateLabel)
                             .addComponent(weddingPriceLabel)
-                            .addComponent(weddingCostLabel)
                             .addComponent(weddingPaidLabel)
+                            .addComponent(weddingCustomerIDLabel)
                             .addGroup(weddingTabLayout.createSequentialGroup()
                                 .addComponent(weddingPaidYesButton)
                                 .addGap(18, 18, 18)
-                                .addComponent(weddingPaidNoButton))
-                            .addComponent(weddingCustomerIDLabel))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(weddingDate))
+                                .addComponent(weddingPaidNoButton)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         weddingTabLayout.setVerticalGroup(
@@ -324,10 +330,6 @@ public class DatabaseGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(weddingPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(weddingCostLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(weddingCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(weddingPaidLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(weddingTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -337,7 +339,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
                 .addComponent(weddingCustomerIDLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(weddingCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
                 .addGroup(weddingTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(addWeddingButton, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(weddingRequiredLabel, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -346,6 +348,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
 
         tabPane.addTab("Wedding", weddingTab);
 
+        addVendorButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         addVendorButton.setText("Add");
         addVendorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -374,7 +377,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
                 .addGroup(vendorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, vendorTabLayout.createSequentialGroup()
                         .addComponent(vendorRequiredLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                         .addComponent(addVendorButton))
                     .addComponent(vendorName)
                     .addGroup(vendorTabLayout.createSequentialGroup()
@@ -396,7 +399,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
                 .addComponent(venderStateLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(vendorState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 395, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 373, Short.MAX_VALUE)
                 .addGroup(vendorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(vendorRequiredLabel)
                     .addComponent(addVendorButton))
@@ -405,6 +408,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
 
         tabPane.addTab("Vendor", vendorTab);
 
+        addSuppliesButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         addSuppliesButton.setText("Add");
         addSuppliesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -415,21 +419,11 @@ public class DatabaseGUI extends javax.swing.JFrame {
         suppliesRequiredLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         suppliesRequiredLabel.setText("All Fields Required");
 
-        suppliesItemNameLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        suppliesItemNameLabel.setText("Item Name");
+        itemNameLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        itemNameLabel.setText("Item Name");
 
-        suppliesVendorIDLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        suppliesVendorIDLabel.setText("Vendor ID");
-
-        suppliesVendorID.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-
-        suppliesItemCostLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        suppliesItemCostLabel.setText("Item Cost");
-
-        suppliesItemCost.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, null, 1.0d));
-
-        suppliesStockLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        suppliesStockLabel.setText("Stock");
+        itemStockLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        itemStockLabel.setText("Stock");
 
         javax.swing.GroupLayout suppliesTabLayout = new javax.swing.GroupLayout(suppliesTab);
         suppliesTab.setLayout(suppliesTabLayout);
@@ -440,48 +434,159 @@ public class DatabaseGUI extends javax.swing.JFrame {
                 .addGroup(suppliesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, suppliesTabLayout.createSequentialGroup()
                         .addComponent(suppliesRequiredLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                         .addComponent(addSuppliesButton))
-                    .addComponent(suppliesItemName)
-                    .addComponent(suppliesVendorID)
-                    .addComponent(suppliesItemCost)
+                    .addComponent(itemName)
+                    .addComponent(itemStock)
                     .addGroup(suppliesTabLayout.createSequentialGroup()
                         .addGroup(suppliesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(suppliesItemNameLabel)
-                            .addComponent(suppliesVendorIDLabel)
-                            .addComponent(suppliesItemCostLabel)
-                            .addComponent(suppliesStockLabel))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(suppliesStock))
+                            .addComponent(itemNameLabel)
+                            .addComponent(itemStockLabel))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         suppliesTabLayout.setVerticalGroup(
             suppliesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, suppliesTabLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(suppliesItemNameLabel)
+                .addComponent(itemNameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(suppliesItemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(itemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(suppliesVendorIDLabel)
+                .addComponent(itemStockLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(suppliesVendorID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(suppliesItemCostLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(suppliesItemCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(suppliesStockLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(suppliesStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 250, Short.MAX_VALUE)
+                .addComponent(itemStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 372, Short.MAX_VALUE)
                 .addGroup(suppliesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(suppliesRequiredLabel)
                     .addComponent(addSuppliesButton))
                 .addContainerGap())
         );
 
-        tabPane.addTab("Supplies", suppliesTab);
+        tabPane.addTab("Item", suppliesTab);
+
+        addVendorSuppliesButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        addVendorSuppliesButton.setText("Add");
+
+        vendorSuppliesRequiredLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        vendorSuppliesRequiredLabel.setText("All Fields Required");
+
+        vendorSuppliesItemIDLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        vendorSuppliesItemIDLabel.setText("Item ID");
+
+        vendorSuppliesItemID.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+
+        vendorSuppliesVendorIDLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        vendorSuppliesVendorIDLabel.setText("Vendor ID");
+
+        vendorSuppliesVendorID.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+
+        vendorSuppliesItemCostLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        vendorSuppliesItemCostLabel.setText("Item Cost");
+
+        vendorSuppliesItemCost.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, null, 1.0d));
+
+        javax.swing.GroupLayout vendorSuppliesTabLayout = new javax.swing.GroupLayout(vendorSuppliesTab);
+        vendorSuppliesTab.setLayout(vendorSuppliesTabLayout);
+        vendorSuppliesTabLayout.setHorizontalGroup(
+            vendorSuppliesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(vendorSuppliesTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(vendorSuppliesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, vendorSuppliesTabLayout.createSequentialGroup()
+                        .addComponent(vendorSuppliesRequiredLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                        .addComponent(addVendorSuppliesButton))
+                    .addComponent(vendorSuppliesItemID)
+                    .addComponent(vendorSuppliesVendorID)
+                    .addGroup(vendorSuppliesTabLayout.createSequentialGroup()
+                        .addGroup(vendorSuppliesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(vendorSuppliesItemIDLabel)
+                            .addComponent(vendorSuppliesVendorIDLabel)
+                            .addComponent(vendorSuppliesItemCostLabel))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(vendorSuppliesItemCost))
+                .addContainerGap())
+        );
+        vendorSuppliesTabLayout.setVerticalGroup(
+            vendorSuppliesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, vendorSuppliesTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(vendorSuppliesItemIDLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(vendorSuppliesItemID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(vendorSuppliesVendorIDLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(vendorSuppliesVendorID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(vendorSuppliesItemCostLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(vendorSuppliesItemCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 298, Short.MAX_VALUE)
+                .addGroup(vendorSuppliesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(vendorSuppliesRequiredLabel)
+                    .addComponent(addVendorSuppliesButton))
+                .addContainerGap())
+        );
+
+        tabPane.addTab("Vendor Supplies", vendorSuppliesTab);
+
+        addWeddingSuppliesButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        addWeddingSuppliesButton.setText("Add");
+
+        weddingSuppliesRequiredLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        weddingSuppliesRequiredLabel.setText("All Fields Required");
+
+        weddingSuppliesWeddingIDLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        weddingSuppliesWeddingIDLabel.setText("Wedding ID");
+
+        weddingSuppliesWeddingID.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+
+        weddingSuppliesVendorSupplyIDLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        weddingSuppliesVendorSupplyIDLabel.setText("Vendor Supply ID");
+
+        weddingSuppliesVendorSupplyID.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+
+        javax.swing.GroupLayout weddingSuppliesTabLayout = new javax.swing.GroupLayout(weddingSuppliesTab);
+        weddingSuppliesTab.setLayout(weddingSuppliesTabLayout);
+        weddingSuppliesTabLayout.setHorizontalGroup(
+            weddingSuppliesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(weddingSuppliesTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(weddingSuppliesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, weddingSuppliesTabLayout.createSequentialGroup()
+                        .addComponent(weddingSuppliesRequiredLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                        .addComponent(addWeddingSuppliesButton))
+                    .addComponent(weddingSuppliesWeddingID)
+                    .addGroup(weddingSuppliesTabLayout.createSequentialGroup()
+                        .addGroup(weddingSuppliesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(weddingSuppliesWeddingIDLabel)
+                            .addComponent(weddingSuppliesVendorSupplyIDLabel))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(weddingSuppliesVendorSupplyID))
+                .addContainerGap())
+        );
+        weddingSuppliesTabLayout.setVerticalGroup(
+            weddingSuppliesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, weddingSuppliesTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(weddingSuppliesWeddingIDLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(weddingSuppliesWeddingID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(weddingSuppliesVendorSupplyIDLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(weddingSuppliesVendorSupplyID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 370, Short.MAX_VALUE)
+                .addGroup(weddingSuppliesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(weddingSuppliesRequiredLabel)
+                    .addComponent(addWeddingSuppliesButton))
+                .addContainerGap())
+        );
+
+        tabPane.addTab("Wedding Supplies", weddingSuppliesTab);
 
         javax.swing.GroupLayout popupAddFrameLayout = new javax.swing.GroupLayout(popupAddFrame.getContentPane());
         popupAddFrame.getContentPane().setLayout(popupAddFrameLayout);
@@ -572,7 +677,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
         ));
         scrollPaneOne.setViewportView(tableOne);
 
-        String[] tableChoices = {"Price Comparisons", "Unpaid Weddings", "Wedding Profit/Loss", "Unfinished Weddings", "Customers", "Employees", "Weddings", "Venders", "Supplies"};
+        String[] tableChoices = {"Price Comparisons", "Unpaid Weddings", "Wedding Profit/Loss", "Unfinished Weddings", "Customers", "Employees", "Weddings", "Venders", "Items", "VendorSupplies", "WeddingSupplies"};
         tablePicker.setModel(new javax.swing.DefaultComboBoxModel<>(tableChoices));
         tablePicker.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -706,14 +811,12 @@ public class DatabaseGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_addVendorButtonActionPerformed
 
     private void addSuppliesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSuppliesButtonActionPerformed
-        if (suppliesItemName.getText().length() > 0) {
+        if (itemName.getText().length() > 0) {
             try {
-                String statement = "INSERT INTO Supplies (ItemName, VenderID, ItemCost, Stock) VALUES (?,?,?,?);";
+                String statement = "INSERT INTO Items (ItemName, ItemStock) VALUES (?,?);";
                 PreparedStatement prepst = conn.prepareStatement(statement);
-                prepst.setString(1, suppliesItemName.getText());
-                prepst.setInt(2, (int) suppliesVendorID.getValue());
-                prepst.setDouble(3, (double) suppliesItemCost.getValue());
-                prepst.setInt(4, (int) suppliesStock.getValue());
+                prepst.setString(1, itemName.getText());
+                prepst.setInt(2, (int) itemStock.getValue());
                 prepst.executeUpdate();
             }
             catch (SQLException ex) {
@@ -835,10 +938,10 @@ public class DatabaseGUI extends javax.swing.JFrame {
         weddingCustomerID.setValue(0);
         vendorName.setText("");
         vendorState.setSelectedIndex(0);
-        suppliesItemName.setText("");
+        itemName.setText("");
         suppliesVendorID.setValue(0);
         suppliesItemCost.setValue(0);
-        suppliesStock.setValue(0);
+        itemStock.setValue(0);
     }
     
     public static DefaultTableModel buildTableModel(ResultSet rs) throws SQLException {
@@ -901,7 +1004,9 @@ public class DatabaseGUI extends javax.swing.JFrame {
     private javax.swing.JButton addEmployeeButton;
     private javax.swing.JButton addSuppliesButton;
     private javax.swing.JButton addVendorButton;
+    private javax.swing.JButton addVendorSuppliesButton;
     private javax.swing.JButton addWeddingButton;
+    private javax.swing.JButton addWeddingSuppliesButton;
     private javax.swing.JTextField customerFirstName;
     private javax.swing.JLabel customerFirstNameLabel;
     private javax.swing.JTextField customerLastName;
@@ -916,6 +1021,10 @@ public class DatabaseGUI extends javax.swing.JFrame {
     private javax.swing.JSpinner employeeSalary;
     private javax.swing.JLabel employeeSalaryLabel;
     private javax.swing.JPanel employeeTab;
+    private javax.swing.JTextField itemName;
+    private javax.swing.JLabel itemNameLabel;
+    private javax.swing.JSpinner itemStock;
+    private javax.swing.JLabel itemStockLabel;
     private javax.swing.JFrame popupAddFrame;
     private javax.swing.JFrame popupRemoveFrame;
     private javax.swing.JButton removeButton;
@@ -925,16 +1034,8 @@ public class DatabaseGUI extends javax.swing.JFrame {
     private javax.swing.JLabel removeRecordTypeLabel;
     private javax.swing.JButton removeRemoveButton;
     private javax.swing.JScrollPane scrollPaneOne;
-    private javax.swing.JSpinner suppliesItemCost;
-    private javax.swing.JLabel suppliesItemCostLabel;
-    private javax.swing.JTextField suppliesItemName;
-    private javax.swing.JLabel suppliesItemNameLabel;
     private javax.swing.JLabel suppliesRequiredLabel;
-    private javax.swing.JSpinner suppliesStock;
-    private javax.swing.JLabel suppliesStockLabel;
     private javax.swing.JPanel suppliesTab;
-    private javax.swing.JSpinner suppliesVendorID;
-    private javax.swing.JLabel suppliesVendorIDLabel;
     private javax.swing.JTabbedPane tabPane;
     private javax.swing.JTable tableOne;
     private javax.swing.JComboBox<String> tablePicker;
@@ -943,10 +1044,16 @@ public class DatabaseGUI extends javax.swing.JFrame {
     private javax.swing.JTextField vendorName;
     private javax.swing.JLabel vendorRequiredLabel;
     private javax.swing.JComboBox<String> vendorState;
+    private javax.swing.JSpinner vendorSuppliesItemCost;
+    private javax.swing.JLabel vendorSuppliesItemCostLabel;
+    private javax.swing.JSpinner vendorSuppliesItemID;
+    private javax.swing.JLabel vendorSuppliesItemIDLabel;
+    private javax.swing.JLabel vendorSuppliesRequiredLabel;
+    private javax.swing.JPanel vendorSuppliesTab;
+    private javax.swing.JSpinner vendorSuppliesVendorID;
+    private javax.swing.JLabel vendorSuppliesVendorIDLabel;
     private javax.swing.JPanel vendorTab;
     private javax.swing.ButtonGroup weddingButtonGroup;
-    private javax.swing.JSpinner weddingCost;
-    private javax.swing.JLabel weddingCostLabel;
     private javax.swing.JSpinner weddingCustomerID;
     private javax.swing.JLabel weddingCustomerIDLabel;
     private javax.swing.JSpinner weddingDate;
@@ -957,6 +1064,12 @@ public class DatabaseGUI extends javax.swing.JFrame {
     private javax.swing.JSpinner weddingPrice;
     private javax.swing.JLabel weddingPriceLabel;
     private javax.swing.JLabel weddingRequiredLabel;
+    private javax.swing.JLabel weddingSuppliesRequiredLabel;
+    private javax.swing.JPanel weddingSuppliesTab;
+    private javax.swing.JSpinner weddingSuppliesVendorSupplyID;
+    private javax.swing.JLabel weddingSuppliesVendorSupplyIDLabel;
+    private javax.swing.JSpinner weddingSuppliesWeddingID;
+    private javax.swing.JLabel weddingSuppliesWeddingIDLabel;
     private javax.swing.JPanel weddingTab;
     // End of variables declaration//GEN-END:variables
 }
