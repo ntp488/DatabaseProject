@@ -13,7 +13,7 @@ CREATE TABLE Employees (
 
 CREATE TABLE Weddings (
     WeddingID INT IDENTITY PRIMARY KEY,
-    WeddingDate DATE NOT NULL,
+    WeddingDate DATETIME NOT NULL,
     TotalPrice DOUBLE NOT NULL,
     Paid BOOLEAN NOT NULL,
     TotalCost DOUBLE NOT NULL,
@@ -21,17 +21,17 @@ CREATE TABLE Weddings (
     FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
 );
 
-CREATE TABLE Venders (
-    VenderID INT IDENTITY PRIMARY KEY,
-    VenderName VARCHAR(50) NOT NULL,
-    VenderState VARCHAR(2) NOT NULL
+CREATE TABLE Vendors (
+    VendorID INT IDENTITY PRIMARY KEY,
+    VendorName VARCHAR(50) NOT NULL,
+    VendorState VARCHAR(2) NOT NULL
 );
 
 CREATE TABLE Supplies (
     ItemID INT IDENTITY PRIMARY KEY,
     ItemName VARCHAR(50) NOT NULL,
-    VenderID INT NOT NULL,
+    VendorID INT NOT NULL,
     ItemCost DOUBLE NOT NULL,
     Stock INT NOT NULL,
-    FOREIGN KEY (VenderID) REFERENCES Venders(VenderID)
+    FOREIGN KEY (VendorID) REFERENCES Vendors(VendorID)
 );
