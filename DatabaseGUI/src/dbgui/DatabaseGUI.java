@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package dbgui;
 
 import java.awt.Toolkit;
@@ -12,9 +8,6 @@ import java.util.logging.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-/**
- * @author Robbie Rushton
- */
 public class DatabaseGUI extends javax.swing.JFrame {
     
     Connection conn;
@@ -47,6 +40,8 @@ public class DatabaseGUI extends javax.swing.JFrame {
         
         popupRemoveFrame.setTitle("Remove A Record");
         popupRemoveFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("resources/cake.png")));
+        
+        resetAddPopup();
     }
 
     @SuppressWarnings("unchecked")
@@ -82,7 +77,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
         weddingPaidNoButton = new javax.swing.JRadioButton();
         weddingCustomerIDLabel = new javax.swing.JLabel();
         weddingCustomerID = new javax.swing.JSpinner();
-        weddingDate = new javax.swing.JSpinner();
+        weddingDate = new javax.swing.JTextField();
         vendorTab = new javax.swing.JPanel();
         addVendorButton = new javax.swing.JButton();
         vendorRequiredLabel = new javax.swing.JLabel();
@@ -113,6 +108,8 @@ public class DatabaseGUI extends javax.swing.JFrame {
         weddingSuppliesWeddingID = new javax.swing.JSpinner();
         weddingSuppliesVendorSupplyIDLabel = new javax.swing.JLabel();
         weddingSuppliesVendorSupplyID = new javax.swing.JSpinner();
+        weddingSuppliesQuantityLabel = new javax.swing.JLabel();
+        weddingSuppliesQuantity = new javax.swing.JSpinner();
         weddingButtonGroup = new javax.swing.ButtonGroup();
         popupRemoveFrame = new javax.swing.JFrame();
         removeRecordTypeLabel = new javax.swing.JLabel();
@@ -289,7 +286,8 @@ public class DatabaseGUI extends javax.swing.JFrame {
 
         weddingCustomerID.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
-        weddingDate.setModel(new javax.swing.SpinnerDateModel());
+        weddingDate.setText("YYYY-MM-DD");
+        weddingDate.setToolTipText("");
 
         javax.swing.GroupLayout weddingTabLayout = new javax.swing.GroupLayout(weddingTab);
         weddingTab.setLayout(weddingTabLayout);
@@ -304,7 +302,6 @@ public class DatabaseGUI extends javax.swing.JFrame {
                         .addComponent(addWeddingButton))
                     .addComponent(weddingPrice)
                     .addComponent(weddingCustomerID)
-                    .addComponent(weddingDate)
                     .addGroup(weddingTabLayout.createSequentialGroup()
                         .addGroup(weddingTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(weddingDateLabel)
@@ -315,7 +312,8 @@ public class DatabaseGUI extends javax.swing.JFrame {
                                 .addComponent(weddingPaidYesButton)
                                 .addGap(18, 18, 18)
                                 .addComponent(weddingPaidNoButton)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(weddingDate))
                 .addContainerGap())
         );
         weddingTabLayout.setVerticalGroup(
@@ -323,7 +321,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, weddingTabLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(weddingDateLabel)
-                .addGap(4, 4, 4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(weddingDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(weddingPriceLabel)
@@ -467,6 +465,11 @@ public class DatabaseGUI extends javax.swing.JFrame {
 
         addVendorSuppliesButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         addVendorSuppliesButton.setText("Add");
+        addVendorSuppliesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addVendorSuppliesButtonActionPerformed(evt);
+            }
+        });
 
         vendorSuppliesRequiredLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         vendorSuppliesRequiredLabel.setText("All Fields Required");
@@ -534,6 +537,11 @@ public class DatabaseGUI extends javax.swing.JFrame {
 
         addWeddingSuppliesButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         addWeddingSuppliesButton.setText("Add");
+        addWeddingSuppliesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addWeddingSuppliesButtonActionPerformed(evt);
+            }
+        });
 
         weddingSuppliesRequiredLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         weddingSuppliesRequiredLabel.setText("All Fields Required");
@@ -548,6 +556,11 @@ public class DatabaseGUI extends javax.swing.JFrame {
 
         weddingSuppliesVendorSupplyID.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
+        weddingSuppliesQuantityLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        weddingSuppliesQuantityLabel.setText("Quantity");
+
+        weddingSuppliesQuantity.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+
         javax.swing.GroupLayout weddingSuppliesTabLayout = new javax.swing.GroupLayout(weddingSuppliesTab);
         weddingSuppliesTab.setLayout(weddingSuppliesTabLayout);
         weddingSuppliesTabLayout.setHorizontalGroup(
@@ -560,12 +573,14 @@ public class DatabaseGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                         .addComponent(addWeddingSuppliesButton))
                     .addComponent(weddingSuppliesWeddingID)
+                    .addComponent(weddingSuppliesVendorSupplyID)
                     .addGroup(weddingSuppliesTabLayout.createSequentialGroup()
                         .addGroup(weddingSuppliesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(weddingSuppliesWeddingIDLabel)
-                            .addComponent(weddingSuppliesVendorSupplyIDLabel))
+                            .addComponent(weddingSuppliesVendorSupplyIDLabel)
+                            .addComponent(weddingSuppliesQuantityLabel))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(weddingSuppliesVendorSupplyID))
+                    .addComponent(weddingSuppliesQuantity))
                 .addContainerGap())
         );
         weddingSuppliesTabLayout.setVerticalGroup(
@@ -579,7 +594,11 @@ public class DatabaseGUI extends javax.swing.JFrame {
                 .addComponent(weddingSuppliesVendorSupplyIDLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(weddingSuppliesVendorSupplyID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 370, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(weddingSuppliesQuantityLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(weddingSuppliesQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 298, Short.MAX_VALUE)
                 .addGroup(weddingSuppliesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(weddingSuppliesRequiredLabel)
                     .addComponent(addWeddingSuppliesButton))
@@ -612,7 +631,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
         removeRecordTypeLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         removeRecordTypeLabel.setText("Record Type");
 
-        removeRecordType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Customer", "Employee", "Wedding", "Vendor", "Supplies" }));
+        removeRecordType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Customer", "Employee", "Wedding", "Vendor", "Item", "Vendor Supplies", "Wedding Supplies" }));
 
         removeRecordIDLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         removeRecordIDLabel.setText("Record ID");
@@ -633,12 +652,12 @@ public class DatabaseGUI extends javax.swing.JFrame {
             .addGroup(popupRemoveFrameLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(popupRemoveFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(removeRecordType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(removeRecordType, 0, 388, Short.MAX_VALUE)
                     .addGroup(popupRemoveFrameLayout.createSequentialGroup()
                         .addGroup(popupRemoveFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(removeRecordTypeLabel)
                             .addComponent(removeRecordIDLabel))
-                        .addGap(0, 276, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(removeRecordID)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popupRemoveFrameLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -677,7 +696,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
         ));
         scrollPaneOne.setViewportView(tableOne);
 
-        String[] tableChoices = {"Price Comparisons", "Unpaid Weddings", "Wedding Profit/Loss", "Unfinished Weddings", "Customers", "Employees", "Weddings", "Venders", "Items", "VendorSupplies", "WeddingSupplies"};
+        String[] tableChoices = {"Price Comparisons", "Unpaid Weddings", "Wedding Profit/Loss", "Unfinished Weddings", "Customers", "Employees", "Weddings", "Vendors", "Items", "Vendor Supplies", "Wedding Supplies"};
         tablePicker.setModel(new javax.swing.DefaultComboBoxModel<>(tableChoices));
         tablePicker.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -774,9 +793,9 @@ public class DatabaseGUI extends javax.swing.JFrame {
 
     private void addWeddingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addWeddingButtonActionPerformed
         try {
-            String statement = "INSERT INTO Weddings (WeddingDate, TotalPrice, Paid, TotalCost, CustomerID) VALUES (?,?,?,?,?);";
+            String statement = "INSERT INTO Weddings (WeddingDate, TotalPrice, Paid, CustomerID) VALUES (?,?,?,?);";
             PreparedStatement prepst = conn.prepareStatement(statement);
-            prepst.setDate(1, (Date) weddingDate.getValue());
+            prepst.setDate(1, Date.valueOf(weddingDate.getText()));
             prepst.setDouble(2, (double) weddingPrice.getValue());
             if(weddingPaidYesButton.isSelected()) {
                 prepst.setBoolean(3, true);
@@ -784,8 +803,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
             else {
                 prepst.setBoolean(3, false);
             }
-            prepst.setDouble(4, (double) weddingCost.getValue());
-            prepst.setInt(5, (int) weddingCustomerID.getValue());
+            prepst.setInt(4, (int) weddingCustomerID.getValue());
             prepst.executeUpdate();
         }
         catch (SQLException ex) {
@@ -797,7 +815,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
     private void addVendorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVendorButtonActionPerformed
         if (vendorName.getText().length() > 0) {
             try {
-                String statement = "INSERT INTO Venders (VenderName, VenderState) VALUES (?,?);";
+                String statement = "INSERT INTO Vendors (VendorName, VendorState) VALUES (?,?);";
                 PreparedStatement prepst = conn.prepareStatement(statement);
                 prepst.setString(1, vendorName.getText());
                 prepst.setString(2, (String) vendorState.getSelectedItem());
@@ -836,30 +854,41 @@ public class DatabaseGUI extends javax.swing.JFrame {
         PreparedStatement prepst;
         try {
             switch(type) {
-                case "Customer":    statement = "DELETE FROM Customers WHERE CustomerID = ?";
-                                    prepst = conn.prepareStatement(statement);
-                                    prepst.setInt(1, (int) removeRecordID.getValue());
-                                    prepst.executeUpdate();
+                case "Customer":        statement = "DELETE FROM Customers WHERE CustomerID = ?";
+                                        prepst = conn.prepareStatement(statement);
+                                        prepst.setInt(1, (int) removeRecordID.getValue());
+                                        prepst.executeUpdate();
                     break;
-                case "Employee":    statement = "DELETE FROM Employees WHERE EmployeeID = ?";
-                                    prepst = conn.prepareStatement(statement);
-                                    prepst.setInt(1, (int) removeRecordID.getValue());
-                                    prepst.executeUpdate();
+                case "Employee":        statement = "DELETE FROM Employees WHERE EmployeeID = ?";
+                                        prepst = conn.prepareStatement(statement);
+                                        prepst.setInt(1, (int) removeRecordID.getValue());
+                                        prepst.executeUpdate();
                     break;
-                case "Wedding":     statement = "DELETE FROM Weddings WHERE WeddingID = ?";
-                                    prepst = conn.prepareStatement(statement);
-                                    prepst.setInt(1, (int) removeRecordID.getValue());
-                                    prepst.executeUpdate();
+                case "Wedding":         statement = "DELETE FROM Weddings WHERE WeddingID = ?";
+                                        prepst = conn.prepareStatement(statement);
+                                        prepst.setInt(1, (int) removeRecordID.getValue());
+                                        prepst.executeUpdate();
                     break;
-                case "Vendor":      statement = "DELETE FROM Vendors WHERE VendorID = ?";
-                                    prepst = conn.prepareStatement(statement);
-                                    prepst.setInt(1, (int) removeRecordID.getValue());
-                                    prepst.executeUpdate();
+                case "Vendor":          statement = "DELETE FROM Vendors WHERE VendorID = ?";
+                                        prepst = conn.prepareStatement(statement);
+                                        prepst.setInt(1, (int) removeRecordID.getValue());
+                                        prepst.executeUpdate();
                     break;
-                case "Supplies":    statement = "DELETE FROM Supplies WHERE ItemID = ?";
-                                    prepst = conn.prepareStatement(statement);
-                                    prepst.setInt(1, (int) removeRecordID.getValue());
-                                    prepst.executeUpdate();
+                case "Item":            statement = "DELETE FROM Items WHERE ItemID = ?";
+                                        prepst = conn.prepareStatement(statement);
+                                        prepst.setInt(1, (int) removeRecordID.getValue());
+                                        prepst.executeUpdate();
+                    break;
+                case "Vendor Supplies": statement = "DELETE FROM VendorSupplies WHERE VendorSupplyID = ?";
+                                        prepst = conn.prepareStatement(statement);
+                                        prepst.setInt(1, (int) removeRecordID.getValue());
+                                        prepst.executeUpdate();
+                    break;
+                case "Wedding Supplies":statement = "DELETE FROM WeddingSupplies WHERE WeddingSuppliesID = ?";
+                                        prepst = conn.prepareStatement(statement);
+                                        prepst.setInt(1, (int) removeRecordID.getValue());
+                                        prepst.executeUpdate();
+                    break;
             }
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseGUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -871,18 +900,58 @@ public class DatabaseGUI extends javax.swing.JFrame {
         popupRemoveFrame.setVisible(true);
     }//GEN-LAST:event_removeButtonActionPerformed
 
+    private void addVendorSuppliesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVendorSuppliesButtonActionPerformed
+        try {
+            String statement = "INSERT INTO VendorSupplies (ItemID, VendorID, ItemCost) VALUES (?,?,?);";
+            PreparedStatement prepst = conn.prepareStatement(statement);
+            prepst.setInt(1, (int) vendorSuppliesItemID.getValue());
+            prepst.setInt(2, (int) vendorSuppliesVendorID.getValue());
+            prepst.setDouble(3, (double) vendorSuppliesItemCost.getValue());
+            prepst.executeUpdate();
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(DatabaseGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        resetAddPopup();
+    }//GEN-LAST:event_addVendorSuppliesButtonActionPerformed
+
+    private void addWeddingSuppliesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addWeddingSuppliesButtonActionPerformed
+        try {
+            String statement = "INSERT INTO WeddingSupplies (WeddingID, VendorSupplyID, Quantity) VALUES (?,?,?);";
+            PreparedStatement prepst = conn.prepareStatement(statement);
+            prepst.setInt(1, (int) weddingSuppliesWeddingID.getValue());
+            prepst.setInt(2, (int) weddingSuppliesVendorSupplyID.getValue());
+            prepst.setInt(3, (int) weddingSuppliesQuantity.getValue());
+            prepst.executeUpdate();
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(DatabaseGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        resetAddPopup();
+    }//GEN-LAST:event_addWeddingSuppliesButtonActionPerformed
+
     private void loadTable() throws SQLException {
         Statement st = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
         ResultSet rs;
         String table = (String) tablePicker.getSelectedItem();
         switch(table){
-                case "Price Comparisons":   //
+                case "Price Comparisons":   rs = st.executeQuery("SELECT i.ItemName, v.VendorName, vs.ItemCost "
+                                                                + "FROM Items as i, Vendors as v, VendorSupplies as vs "
+                                                                + "WHERE v.VendorID = vs.VendorID AND i.ItemID = vs.ItemID "
+                                                                + "ORDER BY ItemName, VendorName, ItemCost;");
+                                            tableOne.setModel(buildTableModel(rs));
                     break;
-                case "Unpaid Weddings":     //
+                case "Unpaid Weddings":     rs = st.executeQuery("SELECT * FROM Weddings WHERE Paid = false");
+                                            tableOne.setModel(buildTableModel(rs));
                     break;
-                case "Wedding Profit/Loss": //
+                case "Wedding Profit/Loss": rs = st.executeQuery("SELECT w.WeddingID, SUM(vs.ItemCost * ws.Quantity) as NetIncome "
+                                                                + "FROM Weddings as w, WeddingSupplies as ws, VendorSupplies as vs "
+                                                                + "WHERE w.WeddingID = ws.WeddingID AND vs.VendorSupplyID = ws.VendorSupplyID "
+                                                                + "GROUP BY WeddingID");
+                                            tableOne.setModel(buildTableModel(rs));
                     break;
-                case "Unfinished Weddings": //
+                case "Unfinished Weddings": rs = st.executeQuery("SELECT * FROM Weddings as w Where w.WeddingDate >= CURDATE()");
+                                            tableOne.setModel(buildTableModel(rs));
                     break;
                 case "Customers":           rs = st.executeQuery("SELECT * FROM Customers");
                                             tableOne.setModel(buildTableModel(rs));
@@ -893,13 +962,23 @@ public class DatabaseGUI extends javax.swing.JFrame {
                 case "Weddings":            rs = st.executeQuery("SELECT * FROM Weddings");
                                             tableOne.setModel(buildTableModel(rs));
                     break;
-                case "Venders":             rs = st.executeQuery("SELECT * FROM Venders");
+                case "Vendors":             rs = st.executeQuery("SELECT * FROM Vendors");
                                             tableOne.setModel(buildTableModel(rs));
                     break;
-                case "Supplies":            rs = st.executeQuery("SELECT * FROM Supplies");
+                case "Items":               rs = st.executeQuery("SELECT * FROM Items");
                                             tableOne.setModel(buildTableModel(rs));
                     break;
-                default:                    //
+                case "Vendor Supplies":     rs = st.executeQuery("SELECT * FROM VendorSupplies");
+                                            tableOne.setModel(buildTableModel(rs));
+                    break;
+                case "Wedding Supplies":    rs = st.executeQuery("SELECT * FROM WeddingSupplies");
+                                            tableOne.setModel(buildTableModel(rs));
+                    break;
+                default:                    rs = st.executeQuery("SELECT i.ItemName, v.VendorName, vs.ItemCost "
+                                                                + "FROM Items as i, Vendors as v, VednorSupplies as vs "
+                                                                + "WHERE v.VendorID = vs.VendorID AND i.ItemID = vs.ItemID "
+                                                                + "ORDER BY ItemName, VendorName, ItemCost;");
+                                            tableOne.setModel(buildTableModel(rs));
                     break;
         }
     }
@@ -932,16 +1011,19 @@ public class DatabaseGUI extends javax.swing.JFrame {
         employeeFirstName.setText("");
         employeeLastName.setText("");
         employeeSalary.setValue(0);
+        weddingDate.setText("YYYY-MM-DD");
         weddingPrice.setValue(0);
         weddingPaidYesButton.setSelected(true);
-        weddingCost.setValue(0);
         weddingCustomerID.setValue(0);
         vendorName.setText("");
         vendorState.setSelectedIndex(0);
         itemName.setText("");
-        suppliesVendorID.setValue(0);
-        suppliesItemCost.setValue(0);
         itemStock.setValue(0);
+        vendorSuppliesItemID.setValue(0);
+        vendorSuppliesItemCost.setValue(0);
+        weddingSuppliesWeddingID.setValue(0);
+        weddingSuppliesVendorSupplyID.setValue(0);
+        weddingSuppliesQuantity.setValue(0);
     }
     
     public static DefaultTableModel buildTableModel(ResultSet rs) throws SQLException {
@@ -1056,7 +1138,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
     private javax.swing.ButtonGroup weddingButtonGroup;
     private javax.swing.JSpinner weddingCustomerID;
     private javax.swing.JLabel weddingCustomerIDLabel;
-    private javax.swing.JSpinner weddingDate;
+    private javax.swing.JTextField weddingDate;
     private javax.swing.JLabel weddingDateLabel;
     private javax.swing.JLabel weddingPaidLabel;
     private javax.swing.JRadioButton weddingPaidNoButton;
@@ -1064,6 +1146,8 @@ public class DatabaseGUI extends javax.swing.JFrame {
     private javax.swing.JSpinner weddingPrice;
     private javax.swing.JLabel weddingPriceLabel;
     private javax.swing.JLabel weddingRequiredLabel;
+    private javax.swing.JSpinner weddingSuppliesQuantity;
+    private javax.swing.JLabel weddingSuppliesQuantityLabel;
     private javax.swing.JLabel weddingSuppliesRequiredLabel;
     private javax.swing.JPanel weddingSuppliesTab;
     private javax.swing.JSpinner weddingSuppliesVendorSupplyID;

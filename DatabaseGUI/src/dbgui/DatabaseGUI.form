@@ -272,7 +272,6 @@
                               </Group>
                               <Component id="weddingPrice" alignment="0" max="32767" attributes="0"/>
                               <Component id="weddingCustomerID" alignment="0" max="32767" attributes="0"/>
-                              <Component id="weddingDate" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="weddingDateLabel" min="-2" max="-2" attributes="0"/>
@@ -287,6 +286,7 @@
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
+                              <Component id="weddingDate" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -297,9 +297,9 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="weddingDateLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="weddingDate" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Component id="weddingPriceLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="weddingPrice" min="-2" max="-2" attributes="0"/>
@@ -407,11 +407,10 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JSpinner" name="weddingDate">
+                <Component class="javax.swing.JTextField" name="weddingDate">
                   <Properties>
-                    <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                      <SpinnerModel initial="now" stepSize="5" type="date"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="YYYY-MM-DD"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -742,6 +741,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Add"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addVendorSuppliesButtonActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="vendorSuppliesRequiredLabel">
                   <Properties>
@@ -819,14 +821,16 @@
                                   <Component id="addWeddingSuppliesButton" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="weddingSuppliesWeddingID" max="32767" attributes="0"/>
+                              <Component id="weddingSuppliesVendorSupplyID" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="weddingSuppliesWeddingIDLabel" min="-2" max="-2" attributes="0"/>
                                       <Component id="weddingSuppliesVendorSupplyIDLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="weddingSuppliesQuantityLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="weddingSuppliesVendorSupplyID" alignment="0" max="32767" attributes="0"/>
+                              <Component id="weddingSuppliesQuantity" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -843,7 +847,11 @@
                           <Component id="weddingSuppliesVendorSupplyIDLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="weddingSuppliesVendorSupplyID" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="370" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="weddingSuppliesQuantityLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="weddingSuppliesQuantity" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="298" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="weddingSuppliesRequiredLabel" min="-2" max="-2" attributes="0"/>
                               <Component id="addWeddingSuppliesButton" min="-2" max="-2" attributes="0"/>
@@ -861,6 +869,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Add"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addWeddingSuppliesButtonActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="weddingSuppliesRequiredLabel">
                   <Properties>
@@ -900,6 +911,21 @@
                     </Property>
                   </Properties>
                 </Component>
+                <Component class="javax.swing.JLabel" name="weddingSuppliesQuantityLabel">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Quantity"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JSpinner" name="weddingSuppliesQuantity">
+                  <Properties>
+                    <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                      <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                    </Property>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -922,13 +948,13 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="removeRecordType" max="32767" attributes="0"/>
+                      <Component id="removeRecordType" pref="388" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="removeRecordTypeLabel" min="-2" max="-2" attributes="0"/>
                               <Component id="removeRecordIDLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="276" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Component id="removeRecordID" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
@@ -970,12 +996,14 @@
         <Component class="javax.swing.JComboBox" name="removeRecordType">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="5">
+              <StringArray count="7">
                 <StringItem index="0" value="Customer"/>
                 <StringItem index="1" value="Employee"/>
                 <StringItem index="2" value="Wedding"/>
                 <StringItem index="3" value="Vendor"/>
-                <StringItem index="4" value="Supplies"/>
+                <StringItem index="4" value="Item"/>
+                <StringItem index="5" value="Vendor Supplies"/>
+                <StringItem index="6" value="Wedding Supplies"/>
               </StringArray>
             </Property>
           </Properties>
@@ -1096,7 +1124,7 @@
         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="tablePickerItemStateChanged"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="String[] tableChoices = {&quot;Price Comparisons&quot;, &quot;Unpaid Weddings&quot;, &quot;Wedding Profit/Loss&quot;, &quot;Unfinished Weddings&quot;, &quot;Customers&quot;, &quot;Employees&quot;, &quot;Weddings&quot;, &quot;Venders&quot;, &quot;Items&quot;, &quot;VendorSupplies&quot;, &quot;WeddingSupplies&quot;};"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="String[] tableChoices = {&quot;Price Comparisons&quot;, &quot;Unpaid Weddings&quot;, &quot;Wedding Profit/Loss&quot;, &quot;Unfinished Weddings&quot;, &quot;Customers&quot;, &quot;Employees&quot;, &quot;Weddings&quot;, &quot;Vendors&quot;, &quot;Items&quot;, &quot;Vendor Supplies&quot;, &quot;Wedding Supplies&quot;};"/>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
