@@ -944,7 +944,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
                 case "Unpaid Weddings":     rs = st.executeQuery("SELECT * FROM Weddings WHERE Paid = false");
                                             tableOne.setModel(buildTableModel(rs));
                     break;
-                case "Wedding Profit/Loss": rs = st.executeQuery("SELECT w.WeddingID, SUM(vs.ItemCost * ws.Quantity) as NetIncome "
+                case "Wedding Profit/Loss": rs = st.executeQuery("SELECT w.WeddingID, w.TotalPrice - SUM(vs.ItemCost * ws.Quantity) as NetIncome "
                                                                 + "FROM Weddings as w, WeddingSupplies as ws, VendorSupplies as vs "
                                                                 + "WHERE w.WeddingID = ws.WeddingID AND vs.VendorSupplyID = ws.VendorSupplyID "
                                                                 + "GROUP BY WeddingID");
