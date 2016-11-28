@@ -947,7 +947,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
                 case "Wedding Profit/Loss": rs = st.executeQuery("SELECT w.WeddingID, w.TotalPrice - SUM(vs.ItemCost * ws.Quantity) as NetIncome "
                                                                 + "FROM Weddings as w, WeddingSupplies as ws, VendorSupplies as vs "
                                                                 + "WHERE w.WeddingID = ws.WeddingID AND vs.VendorSupplyID = ws.VendorSupplyID "
-                                                                + "GROUP BY WeddingID");
+                                                                + "GROUP BY w.WeddingID, w.TotalPrice");
                                             tableOne.setModel(buildTableModel(rs));
                     break;
                 case "Unfinished Weddings": rs = st.executeQuery("SELECT * FROM Weddings as w Where w.WeddingDate >= CURDATE()");
