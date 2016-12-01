@@ -28,8 +28,7 @@ CREATE TABLE Vendors (
 
 CREATE TABLE Items (
     ItemID INT IDENTITY PRIMARY KEY,
-    ItemName VARCHAR(50) NOT NULL,
-    ItemStock INT NOT NULL,
+    ItemName VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE VendorSupplies (
@@ -37,6 +36,7 @@ CREATE TABLE VendorSupplies (
     ItemID INT NOT NULL,
     VendorID INT NOT NULL,
     ItemCost DOUBLE NOT NULL,
+    ItemStock INT NOT NULL,
     FOREIGN KEY (ItemID) REFERENCES Items(ItemID),
     FOREIGN KEY (VendorID) REFERENCES Vendors(VendorID)
 );

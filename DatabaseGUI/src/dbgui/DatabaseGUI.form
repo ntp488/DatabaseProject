@@ -596,12 +596,8 @@
                                   <Component id="addSuppliesButton" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="itemName" max="32767" attributes="0"/>
-                              <Component id="itemStock" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="itemNameLabel" min="-2" max="-2" attributes="0"/>
-                                      <Component id="itemStockLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="itemNameLabel" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -616,11 +612,7 @@
                           <Component id="itemNameLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="itemName" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="itemStockLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="itemStock" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="372" max="32767" attributes="0"/>
+                          <EmptySpace pref="467" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="suppliesRequiredLabel" min="-2" max="-2" attributes="0"/>
                               <Component id="addSuppliesButton" min="-2" max="-2" attributes="0"/>
@@ -660,16 +652,6 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="itemName">
                 </Component>
-                <Component class="javax.swing.JLabel" name="itemStockLabel">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Arial" size="18" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Stock"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JSpinner" name="itemStock">
-                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="vendorSuppliesTab">
@@ -694,15 +676,17 @@
                               </Group>
                               <Component id="vendorSuppliesItemID" max="32767" attributes="0"/>
                               <Component id="vendorSuppliesVendorID" alignment="0" max="32767" attributes="0"/>
+                              <Component id="vendorSuppliesItemCost" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="vendorSuppliesItemIDLabel" min="-2" max="-2" attributes="0"/>
                                       <Component id="vendorSuppliesVendorIDLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="vendorSuppliesItemCostLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="vendorSuppliesItemStockLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="vendorSuppliesItemCost" alignment="0" max="32767" attributes="0"/>
+                              <Component id="vendorSuppliesItemStock" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -723,7 +707,11 @@
                           <Component id="vendorSuppliesItemCostLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="vendorSuppliesItemCost" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="298" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="vendorSuppliesItemStockLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="vendorSuppliesItemStock" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="251" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="vendorSuppliesRequiredLabel" min="-2" max="-2" attributes="0"/>
                               <Component id="addVendorSuppliesButton" min="-2" max="-2" attributes="0"/>
@@ -796,6 +784,16 @@
                     <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                       <SpinnerModel initial="0.0" minimum="0.0" numberType="java.lang.Double" stepSize="1.0" type="number"/>
                     </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JSpinner" name="vendorSuppliesItemStock">
+                </Component>
+                <Component class="javax.swing.JLabel" name="vendorSuppliesItemStockLabel">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Stock"/>
                   </Properties>
                 </Component>
               </SubComponents>

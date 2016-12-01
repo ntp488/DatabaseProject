@@ -90,8 +90,6 @@ public class DatabaseGUI extends javax.swing.JFrame {
         suppliesRequiredLabel = new javax.swing.JLabel();
         itemNameLabel = new javax.swing.JLabel();
         itemName = new javax.swing.JTextField();
-        itemStockLabel = new javax.swing.JLabel();
-        itemStock = new javax.swing.JSpinner();
         vendorSuppliesTab = new javax.swing.JPanel();
         addVendorSuppliesButton = new javax.swing.JButton();
         vendorSuppliesRequiredLabel = new javax.swing.JLabel();
@@ -101,6 +99,8 @@ public class DatabaseGUI extends javax.swing.JFrame {
         vendorSuppliesVendorID = new javax.swing.JSpinner();
         vendorSuppliesItemCostLabel = new javax.swing.JLabel();
         vendorSuppliesItemCost = new javax.swing.JSpinner();
+        vendorSuppliesItemStock = new javax.swing.JSpinner();
+        vendorSuppliesItemStockLabel = new javax.swing.JLabel();
         weddingSuppliesTab = new javax.swing.JPanel();
         addWeddingSuppliesButton = new javax.swing.JButton();
         weddingSuppliesRequiredLabel = new javax.swing.JLabel();
@@ -420,9 +420,6 @@ public class DatabaseGUI extends javax.swing.JFrame {
         itemNameLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         itemNameLabel.setText("Item Name");
 
-        itemStockLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        itemStockLabel.setText("Stock");
-
         javax.swing.GroupLayout suppliesTabLayout = new javax.swing.GroupLayout(suppliesTab);
         suppliesTab.setLayout(suppliesTabLayout);
         suppliesTabLayout.setHorizontalGroup(
@@ -435,11 +432,8 @@ public class DatabaseGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                         .addComponent(addSuppliesButton))
                     .addComponent(itemName)
-                    .addComponent(itemStock)
                     .addGroup(suppliesTabLayout.createSequentialGroup()
-                        .addGroup(suppliesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(itemNameLabel)
-                            .addComponent(itemStockLabel))
+                        .addComponent(itemNameLabel)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -450,11 +444,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
                 .addComponent(itemNameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(itemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(itemStockLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(itemStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 372, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 467, Short.MAX_VALUE)
                 .addGroup(suppliesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(suppliesRequiredLabel)
                     .addComponent(addSuppliesButton))
@@ -489,6 +479,9 @@ public class DatabaseGUI extends javax.swing.JFrame {
 
         vendorSuppliesItemCost.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, null, 1.0d));
 
+        vendorSuppliesItemStockLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        vendorSuppliesItemStockLabel.setText("Stock");
+
         javax.swing.GroupLayout vendorSuppliesTabLayout = new javax.swing.GroupLayout(vendorSuppliesTab);
         vendorSuppliesTab.setLayout(vendorSuppliesTabLayout);
         vendorSuppliesTabLayout.setHorizontalGroup(
@@ -502,13 +495,15 @@ public class DatabaseGUI extends javax.swing.JFrame {
                         .addComponent(addVendorSuppliesButton))
                     .addComponent(vendorSuppliesItemID)
                     .addComponent(vendorSuppliesVendorID)
+                    .addComponent(vendorSuppliesItemCost)
                     .addGroup(vendorSuppliesTabLayout.createSequentialGroup()
                         .addGroup(vendorSuppliesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(vendorSuppliesItemIDLabel)
                             .addComponent(vendorSuppliesVendorIDLabel)
-                            .addComponent(vendorSuppliesItemCostLabel))
+                            .addComponent(vendorSuppliesItemCostLabel)
+                            .addComponent(vendorSuppliesItemStockLabel))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(vendorSuppliesItemCost))
+                    .addComponent(vendorSuppliesItemStock))
                 .addContainerGap())
         );
         vendorSuppliesTabLayout.setVerticalGroup(
@@ -526,7 +521,11 @@ public class DatabaseGUI extends javax.swing.JFrame {
                 .addComponent(vendorSuppliesItemCostLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(vendorSuppliesItemCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 298, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(vendorSuppliesItemStockLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(vendorSuppliesItemStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 251, Short.MAX_VALUE)
                 .addGroup(vendorSuppliesTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(vendorSuppliesRequiredLabel)
                     .addComponent(addVendorSuppliesButton))
@@ -831,10 +830,9 @@ public class DatabaseGUI extends javax.swing.JFrame {
     private void addSuppliesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSuppliesButtonActionPerformed
         if (itemName.getText().length() > 0) {
             try {
-                String statement = "INSERT INTO Items (ItemName, ItemStock) VALUES (?,?);";
+                String statement = "INSERT INTO Items (ItemName) VALUES (?);";
                 PreparedStatement prepst = conn.prepareStatement(statement);
                 prepst.setString(1, itemName.getText());
-                prepst.setInt(2, (int) itemStock.getValue());
                 prepst.executeUpdate();
             }
             catch (SQLException ex) {
@@ -902,11 +900,12 @@ public class DatabaseGUI extends javax.swing.JFrame {
 
     private void addVendorSuppliesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVendorSuppliesButtonActionPerformed
         try {
-            String statement = "INSERT INTO VendorSupplies (ItemID, VendorID, ItemCost) VALUES (?,?,?);";
+            String statement = "INSERT INTO VendorSupplies (ItemID, VendorID, ItemCost, ItemStock) VALUES (?,?,?,?);";
             PreparedStatement prepst = conn.prepareStatement(statement);
             prepst.setInt(1, (int) vendorSuppliesItemID.getValue());
             prepst.setInt(2, (int) vendorSuppliesVendorID.getValue());
             prepst.setDouble(3, (double) vendorSuppliesItemCost.getValue());
+            prepst.setInt(4, (int) vendorSuppliesItemStock.getValue());
             prepst.executeUpdate();
         }
         catch (SQLException ex) {
@@ -1018,7 +1017,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
         vendorName.setText("");
         vendorState.setSelectedIndex(0);
         itemName.setText("");
-        itemStock.setValue(0);
+        vendorSuppliesItemStock.setValue(0);
         vendorSuppliesItemID.setValue(0);
         vendorSuppliesItemCost.setValue(0);
         weddingSuppliesWeddingID.setValue(0);
@@ -1105,8 +1104,6 @@ public class DatabaseGUI extends javax.swing.JFrame {
     private javax.swing.JPanel employeeTab;
     private javax.swing.JTextField itemName;
     private javax.swing.JLabel itemNameLabel;
-    private javax.swing.JSpinner itemStock;
-    private javax.swing.JLabel itemStockLabel;
     private javax.swing.JFrame popupAddFrame;
     private javax.swing.JFrame popupRemoveFrame;
     private javax.swing.JButton removeButton;
@@ -1130,6 +1127,8 @@ public class DatabaseGUI extends javax.swing.JFrame {
     private javax.swing.JLabel vendorSuppliesItemCostLabel;
     private javax.swing.JSpinner vendorSuppliesItemID;
     private javax.swing.JLabel vendorSuppliesItemIDLabel;
+    private javax.swing.JSpinner vendorSuppliesItemStock;
+    private javax.swing.JLabel vendorSuppliesItemStockLabel;
     private javax.swing.JLabel vendorSuppliesRequiredLabel;
     private javax.swing.JPanel vendorSuppliesTab;
     private javax.swing.JSpinner vendorSuppliesVendorID;
