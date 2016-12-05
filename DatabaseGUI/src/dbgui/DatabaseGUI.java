@@ -937,7 +937,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
                 case "Price Comparisons":   rs = st.executeQuery("SELECT i.ItemName, v.VendorName, vs.ItemCost "
                                                                 + "FROM Items as i, Vendors as v, VendorSupplies as vs "
                                                                 + "WHERE v.VendorID = vs.VendorID AND i.ItemID = vs.ItemID "
-                                                                + "ORDER BY ItemName, VendorName, ItemCost;");
+                                                                + "ORDER BY i.ItemName, vs.ItemCost");
                                             tableOne.setModel(buildTableModel(rs));
                     break;
                 case "Unpaid Weddings":     rs = st.executeQuery("SELECT * FROM Weddings WHERE Paid = false");
