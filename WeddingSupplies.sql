@@ -1,0 +1,19 @@
+INSERT INTO WeddingSupplies (WeddingID, VendorSupplyID, Quantity)
+VALUES
+    (),
+    (),
+    (),
+    (),
+    (),
+    (),
+    (),
+    (),
+    (),
+    (),
+    (),
+    (),
+    (),
+    (),
+    (),
+    (),
+    ();

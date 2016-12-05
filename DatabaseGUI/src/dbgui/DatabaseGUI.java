@@ -940,7 +940,8 @@ public class DatabaseGUI extends javax.swing.JFrame {
                                                                 + "ORDER BY i.ItemName, vs.ItemCost");
                                             tableOne.setModel(buildTableModel(rs));
                     break;
-                case "Unpaid Weddings":     rs = st.executeQuery("SELECT * FROM Weddings WHERE Paid = false");
+                case "Unpaid Weddings":     rs = st.executeQuery("SELECT WeddingID, WeddingDate, TotalPrice, CustomerID "
+                                                               + "FROM Weddings WHERE Paid = false");
                                             tableOne.setModel(buildTableModel(rs));
                     break;
                 case "Wedding Profit/Loss": rs = st.executeQuery("SELECT w.WeddingID, w.TotalPrice - SUM(vs.ItemCost * ws.Quantity) as NetIncome "
@@ -949,7 +950,8 @@ public class DatabaseGUI extends javax.swing.JFrame {
                                                                 + "GROUP BY w.WeddingID, w.TotalPrice");
                                             tableOne.setModel(buildTableModel(rs));
                     break;
-                case "Unfinished Weddings": rs = st.executeQuery("SELECT * FROM Weddings as w Where w.WeddingDate >= CURDATE()");
+                case "Unfinished Weddings": rs = st.executeQuery("SELECT WeddingID, WeddingDate, TotalPrice, CustomerID "
+                                                               + "FROM Weddings as w Where w.WeddingDate >= CURDATE()");
                                             tableOne.setModel(buildTableModel(rs));
                     break;
                 case "Customers":           rs = st.executeQuery("SELECT * FROM Customers");
