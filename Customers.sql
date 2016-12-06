@@ -1,4 +1,4 @@
-INSERT INTO Customers
+INSERT INTO Customers (CustomerFirstName,CustomerLastName)
 VALUES
     ('Henry','McCoy'),
     ('Bruce','Wayne'),
