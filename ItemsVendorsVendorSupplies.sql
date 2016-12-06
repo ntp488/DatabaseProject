@@ -13,7 +13,7 @@ VALUES
     (10, '100 Ct. Peruvian Lily'),
     (11, '12 Ct. Red Roses'),
     (12, '12 Ct. Multicolor Roses'),
-    (13, '12 Ct. Red Roses'),
+    (13, '12 Ct. Black Roses'),
     (14, 'Trumpet Mermaid Bead/Lace Dress with Train'),
     (15, 'Gauze Scoop Mermaid with Train'),
     (16, 'Vera Wang Embroidered Wedding Gown'),
@@ -31,7 +31,7 @@ VALUES
     (28, 'Three Teir Cake'),
     (29, 'Three Teir Cake Customized'),
     (30, 'Four Teir Cake'),
-    (31, 'Cutom Four Teir Cake');
+    (31, 'Custom Four Teir Cake');
 
 INSERT INTO Vendors (VendorID, VendorName, VendorState)
 VALUES
@@ -61,3 +61,19 @@ VALUES
     (17, 28, 3, 400, 100),
     (18, 29, 3, 420, 100),
     (19, 30, 3, 550, 50);
+    (20, 1, 1, 300, 3),
+    (21, 2, 1, 30, 5),
+    (22, 3, 1, 76, 3),
+    (23, 4, 1, 40, 5),
+    (24, 5, 1, 20, 10),
+    (25, 6, 1, 50, 5),
+    (26, 7, 1, 30, 5),
+    (27, 8, 1, 25, 10),
+    (28, 9, 1, 30, 5),
+    (29, 10, 2, 50, 50),
+    (30, 11, 2, 35, 100),
+    (31, 12, 2, 25, 100),
+    (32, 13, 2, 35, 100),
+    (33, 14, 3, 600, 3),
+    (34, 15, 3, 900, 2),
+    (35, 16, 3, 400, 3),
